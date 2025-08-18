@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import WhatsAppButton from "@/components/whatsapp-button"
 
+
 const useScrollAnimation = () => {
   const [visibleElements, setVisibleElements] = useState<Set<string>>(new Set())
   const observerRef = useRef<IntersectionObserver | null>(null)
@@ -329,69 +330,63 @@ export default function Home() {
         </div>
       </nav>
 
+    {/* Home Section - Now appears immediately without scroll animation */}
       <section id="home" className="relative min-h-screen flex items-center overflow-hidden creative-bg-pattern">
-  {/* Background gradient overlay */}
-  <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-secondary/12" />
+        {/* Background gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-secondary/12" />
 
-  {/* Floating background shapes */}
-  <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-accent/25 to-secondary/35 rounded-full blur-2xl floating-stagger-1" />
-  <div className="absolute bottom-20 right-10 w-60 h-60 bg-gradient-to-br from-secondary/20 to-accent/25 rounded-full blur-3xl floating-stagger-2" />
-  <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-br from-secondary/30 to-primary/40 rounded-full blur-xl floating-stagger-3" />
-  <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-gradient-to-br from-primary/40 to-secondary/50 rounded-full blur-lg floating-stagger-1" />
-  <div className="absolute bottom-1/3 left-1/2 w-28 h-28 bg-gradient-to-br from-accent/35 to-primary/45 rounded-full blur-xl floating-stagger-2" />
+        {/* Floating background shapes */}
+        <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-accent/25 to-secondary/35 rounded-full blur-2xl floating-stagger-1" />
+        <div className="absolute bottom-20 right-10 w-60 h-60 bg-gradient-to-br from-secondary/20 to-accent/25 rounded-full blur-3xl floating-stagger-2" />
+        <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-br from-secondary/30 to-primary/40 rounded-full blur-xl floating-stagger-3" />
+        <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-gradient-to-br from-primary/40 to-secondary/50 rounded-full blur-lg floating-stagger-1" />
+        <div className="absolute bottom-1/3 left-1/2 w-28 h-28 bg-gradient-to-br from-accent/35 to-primary/45 rounded-full blur-xl floating-stagger-2" />
 
-  {/* Main container */}
-  <div className="relative z-10 container mx-auto px-16 max-w-6xl py-20">
-    <div className="grid lg:grid-cols-12 gap-20 items-start">
-      
-      {/* Left side - Text Content */}
-      <div
-        ref={(el) => observeElement(el, "hero-content")}
-        className={`lg:col-span-7 ${visibleElements.has("hero-content") ? "fade-in-left" : "opacity-0"} space-y-12`}
-      >
-        <div className="space-y-8 modern-card creative-hover p-10 rounded-3xl artistic-shadow">
-          <h3 className="text-4xl font-sans font-bold gradient-text">{t.hero.welcome}</h3>
-          <p className="text-2xl font-sans leading-relaxed text-foreground/90">{t.hero.description}</p>
-          <p className="text-2xl font-sans leading-relaxed text-foreground/90">{t.hero.description2}</p>
-        </div>
-
-        <div className="space-y-8 modern-card creative-hover p-10 rounded-3xl artistic-shadow">
-          <h4 className="text-3xl font-sans font-bold gradient-text">{t.hero.whyTitle}</h4>
-          <div className="grid gap-8">
-            {[t.hero.excellence, t.hero.aesthetic, t.hero.heritage].map((item, index) => (
-              <div
-                key={index}
-                className="flex items-start gap-8 p-6 rounded-2xl bg-gradient-to-r from-accent/15 to-secondary/15 creative-hover"
-              >
-                <div className="w-6 h-6 bg-gradient-to-r from-accent to-secondary rounded-full mt-3 flex-shrink-0 pulse-glow"></div>
-                <p className="text-xl font-sans leading-relaxed text-foreground/90">{item}</p>
+        {/* Main container */}
+        <div className="relative z-10 container mx-auto px-16 max-w-6xl py-20">
+          <div className="grid lg:grid-cols-12 gap-20 items-start">
+            
+            {/* Left side - Text Content (no scroll animation) */}
+            <div className="lg:col-span-7 space-y-12">
+              <div className="space-y-8 modern-card creative-hover p-10 rounded-3xl artistic-shadow">
+                <h3 className="text-4xl font-sans font-bold gradient-text">{t.hero.welcome}</h3>
+                <p className="text-2xl font-sans leading-relaxed text-foreground/90">{t.hero.description}</p>
+                <p className="text-2xl font-sans leading-relaxed text-foreground/90">{t.hero.description2}</p>
               </div>
-            ))}
+
+              <div className="space-y-8 modern-card creative-hover p-10 rounded-3xl artistic-shadow">
+                <h4 className="text-3xl font-sans font-bold gradient-text">{t.hero.whyTitle}</h4>
+                <div className="grid gap-8">
+                  {[t.hero.excellence, t.hero.aesthetic, t.hero.heritage].map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-8 p-6 rounded-2xl bg-gradient-to-r from-accent/15 to-secondary/15 creative-hover"
+                    >
+                      <div className="w-6 h-6 bg-gradient-to-r from-accent to-secondary rounded-full mt-3 flex-shrink-0 pulse-glow"></div>
+                      <p className="text-xl font-sans leading-relaxed text-foreground/90">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <p className="text-3xl font-sans leading-relaxed gradient-text font-bold italic">{t.hero.closing}</p>
+
+              <div className={`flex gap-8 ${language === "ar" ? "flex-row-reverse" : ""}`}>
+                {/* CTA buttons can go here */}
+              </div>
+            </div>
+
+            {/* Right side - Image (no scroll animation) */}
+            <div className="lg:col-span-5 relative self-start">
+              <img
+                src="IMG_2310.JPG"
+                alt={language === "fr" ? "Image Principale des Tajines" : "الصورة الرئيسية للطواجين"}
+                className="w-full h-[700px] object-cover rounded-3xl pulse-glow floating-element border-4 border-dashed border-[#42322A]/30"
+              />
+            </div>
           </div>
         </div>
-
-        <p className="text-3xl font-sans leading-relaxed gradient-text font-bold italic">{t.hero.closing}</p>
-
-        <div className={`flex gap-8 ${language === "ar" ? "flex-row-reverse" : ""}`}>
-          {/* CTA buttons can go here */}
-        </div>
-      </div>
-
-      {/* Right side - Image aligned to top */}
-      <div
-        ref={(el) => observeElement(el, "hero-image")}
-        className={`lg:col-span-5 ${visibleElements.has("hero-image") ? "fade-in-scale" : "opacity-0"} relative self-start`}
-      >
-        <img
-          src="IMG_2310.JPG"
-          alt={language === "fr" ? "Image Principale des Tajines" : "الصورة الرئيسية للطواجين"}
-          className="w-full h-[700px] object-cover rounded-3xl pulse-glow floating-element border-4 border-dashed border-[#42322A]/30"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       <div className="artistic-divider"></div>
 
