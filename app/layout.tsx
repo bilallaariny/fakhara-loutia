@@ -19,7 +19,7 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   title: "Fakhara Loutia - Artisanat Marocain",
   description: "Découvrez l'art des tajines marocains avec Fakhara Loutia",
-  generator: "v0.app",
+  
 }
 
 export default function RootLayout({
