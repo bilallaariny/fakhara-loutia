@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import WhatsAppButton from "@/components/whatsapp-button"
 
-
 const useScrollAnimation = () => {
   const [visibleElements, setVisibleElements] = useState<Set<string>>(new Set())
   const observerRef = useRef<IntersectionObserver | null>(null)
@@ -55,13 +54,7 @@ const translations = {
         "Bienvenue chez Fakhara Loutia, où l'artisanat marocain s'exprime à travers des tajines d'exception. Nos tajines, nommés \"Fakhara Loutia\" ou \"joyau d'argile\", sont des pièces uniques, façonnées à la main par des artisans passionnés, ancrées dans des siècles de tradition marocaine. Chaque tajine est une célébration de l'héritage artistique et culturel du Maroc.",
       description2:
         "Chez Fakhara Loutia, nous transformons l'argile brute en œuvres d'art intemporelles, reflétant la beauté et l'authenticité de la poterie marocaine. Explorez notre histoire, découvrez le processus de création et plongez dans l'univers de nos tajines artisanaux.",
-      whyTitle: "Pourquoi Fakhara Loutia ?",
-      excellence: "Artisanat d'Excellence : Chaque tajine est façonné à la main avec un savoir-faire ancestral.",
-      aesthetic: "Esthétique Traditionnelle : Nos designs capturent l'élégance intemporelle de la poterie marocaine.",
-      heritage: "Héritage Culturel : Inspirés par l'âme des souks et des ateliers artisanaux du Maroc.",
-      closing: "Laissez-vous emporter par l'art de Fakhara Loutia et découvrez la magie de l'artisanat marocain.",
-      cta1: "Découvrir Nos Tajines",
-      cta2: "En Savoir Plus",
+   
     },
     about: {
       title: "À Propos de Nous",
@@ -149,7 +142,6 @@ const translations = {
           description:
             "Les pièces sont cuites dans des fours traditionnels à des températures soigneusement contrôlées. Cette étape solidifie l'argile et lui confère une finition soignée et durable.",
         }
-       
       ],
       closing:
         "Ce processus artisanal garantit que chaque tajine Fakhara Loutia est une pièce unique, symbole de l'artisanat marocain et de l'amour du détail.",
@@ -171,13 +163,7 @@ const translations = {
         'مرحباً بكم في فخارة لوطية، حيث تتجلى الحرفة المغربية من خلال طواجين استثنائية. طواجيننا المسماة "فخارة لوطية" أو "جوهرة الطين" هي قطع فريدة، مصنوعة يدوياً من قبل حرفيين شغوفين، متجذرة في قرون من التقاليد المغربية. كل طاجين هو احتفال بالتراث الفني والثقافي للمغرب.',
       description2:
         "في فخارة لوطية، نحول الطين الخام إلى أعمال فنية خالدة، تعكس جمال وأصالة الفخار المغربي. استكشف تاريخنا، اكتشف عملية الإبداع وانغمس في عالم طواجيننا الحرفية.",
-      whyTitle: "لماذا فخارة لوطية؟",
-      excellence: "حرفية متميزة: كل طاجين مصنوع يدوياً بمهارة تراثية.",
-      aesthetic: "جمالية تقليدية: تصاميمنا تأسر الأناقة الخالدة للفخار المغربي.",
-      heritage: "تراث ثقافي: مستوحى من روح الأسواق والورش الحرفية في المغرب.",
-      closing: "دعوا أنفسكم تنجرفون مع فن فخارة لوطية واكتشفوا سحر الحرفة المغربية.",
-      cta1: "اكتشف طواجيننا",
-      cta2: "اعرف المزيد",
+      
     },
     about: {
       title: "من نحن",
@@ -303,26 +289,26 @@ export default function Home() {
               className="font-sans font-black text-4xl gradient-text cursor-pointer floating-element creative-hover"
               onClick={() => scrollToSection("home")}
             >
-           <img src="10_FAKHARA LOUTIA_Export_couleur_horiz.png" alt="" className="w-32 h-10" />
+              <img src="10_FAKHARA LOUTIA_Export_couleur_horiz.png" alt="" className="w-32 h-10" />
             </div>
 
             <div
-  className={`hidden md:flex gap-16 ${language === "ar" ? "flex-row-reverse" : "flex-row"}`}
->
-  {Object.entries(t.nav).map(([key, value]) => (
-    <button
-      key={key}
-      onClick={() => scrollToSection(key === "home" ? "home" : key)}
-      className="nav-link text-xl font-semibold text-foreground/80 hover:text-primary"
-    >
-      {value}
-    </button>
-  ))}
-</div>
+              className={`hidden md:flex gap-16 ${language === "ar" ? "flex-row-reverse" : "flex-row"}`}
+            >
+              {Object.entries(t.nav).map(([key, value]) => (
+                <button
+                  key={key}
+                  onClick={() => scrollToSection(key === "home" ? "home" : key)}
+                  className="nav-link text-xl font-semibold text-foreground/80 hover:text-primary"
+                >
+                  {value}
+                </button>
+              ))}
+            </div>
 
             <Button
               onClick={toggleLanguage}
-              className="modern-card bg-gradient-to-r from-primary via-accent to-secondary  text-white border-0 px-8 py-4 rounded-2xl text-lg font-bold"
+              className="modern-card bg-gradient-to-r from-primary via-accent to-secondary text-white border-0 px-8 py-4 rounded-2xl text-lg font-bold"
             >
               {language === "fr" ? "العربية" : "Français"}
             </Button>
@@ -330,64 +316,44 @@ export default function Home() {
         </div>
       </nav>
 
-    {/* Home Section - Now appears immediately without scroll animation */}
-      <section id="home" className="relative min-h-screen flex items-center overflow-hidden creative-bg-pattern">
-        {/* Background gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 via-transparent to-secondary/12" />
+      {/* Home Section - Full-width image with 100vh and prettier content */}
+      <section id="home" className="relative h-[100vh] flex items-center overflow-hidden creative-bg-pattern">
+        {/* Full-width background image with 100vh */}
+        <div className="absolute inset-0">
+          <img
+            src="IMG_2310.JPG"
+            alt={language === "fr" ? "Image Principale des Tajines" : "الصورة الرئيسية للطواجين"}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
+        </div>
 
         {/* Floating background shapes */}
-        <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-accent/25 to-secondary/35 rounded-full blur-2xl floating-stagger-1" />
-        <div className="absolute bottom-20 right-10 w-60 h-60 bg-gradient-to-br from-secondary/20 to-accent/25 rounded-full blur-3xl floating-stagger-2" />
-        <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-br from-secondary/30 to-primary/40 rounded-full blur-xl floating-stagger-3" />
-        <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-gradient-to-br from-primary/40 to-secondary/50 rounded-full blur-lg floating-stagger-1" />
-        <div className="absolute bottom-1/3 left-1/2 w-28 h-28 bg-gradient-to-br from-accent/35 to-primary/45 rounded-full blur-xl floating-stagger-2" />
+        <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-accent/30 to-secondary/40 rounded-full blur-2xl floating-stagger-1" />
+        <div className="absolute bottom-20 right-10 w-60 h-60 bg-gradient-to-br from-secondary/25 to-accent/30 rounded-full blur-3xl floating-stagger-2" />
+        <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-gradient-to-br from-secondary/35 to-primary/45 rounded-full blur-xl floating-stagger-3" />
+        <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-gradient-to-br from-primary/45 to-secondary/55 rounded-full blur-lg floating-stagger-1" />
+        <div className="absolute bottom-1/3 left-1/2 w-28 h-28 bg-gradient-to-br from-accent/40 to-primary/50 rounded-full blur-xl floating-stagger-2" />
 
-        {/* Main container */}
-        <div className="relative z-10 container mx-auto px-16 max-w-6xl py-20">
-          <div className="grid lg:grid-cols-12 gap-20 items-start">
-            
-            {/* Left side - Text Content (no scroll animation) */}
-            <div className="lg:col-span-7 space-y-12">
-              <div className="space-y-8 modern-card creative-hover p-10 rounded-3xl artistic-shadow">
-                <h3 className="text-4xl font-sans font-bold gradient-text">{t.hero.welcome}</h3>
-                <p className="text-2xl font-sans leading-relaxed text-foreground/90">{t.hero.description}</p>
-                <p className="text-2xl font-sans leading-relaxed text-foreground/90">{t.hero.description2}</p>
-              </div>
-
-              <div className="space-y-8 modern-card creative-hover p-10 rounded-3xl artistic-shadow">
-                <h4 className="text-3xl font-sans font-bold gradient-text">{t.hero.whyTitle}</h4>
-                <div className="grid gap-8">
-                  {[t.hero.excellence, t.hero.aesthetic, t.hero.heritage].map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex items-start gap-8 p-6 rounded-2xl bg-gradient-to-r from-accent/15 to-secondary/15 creative-hover"
-                    >
-                      <div className="w-6 h-6 bg-gradient-to-r from-accent to-secondary rounded-full mt-3 flex-shrink-0 pulse-glow"></div>
-                      <p className="text-xl font-sans leading-relaxed text-foreground/90">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <p className="text-3xl font-sans leading-relaxed gradient-text font-bold italic">{t.hero.closing}</p>
-
-              <div className={`flex gap-8 ${language === "ar" ? "flex-row-reverse" : ""}`}>
-                {/* CTA buttons can go here */}
-              </div>
+        {/* Content overlay */}
+        <div className="relative z-10 container mx-auto px-16 max-w-5xl py-12">
+          <div className="flex flex-col items-center text-center space-y-10">
+            <div className="space-y-6 modern-card creative-hover p-12 rounded-3xl bg-white/15 backdrop-blur-lg shadow-2xl">
+              <h3 className="text-5xl font-sans font-extrabold text-white tracking-tight leading-tight">
+                {t.hero.welcome}
+              </h3>
+              <p className="text-xl font-sans leading-relaxed text-white/90 max-w-3xl mx-auto">
+                {t.hero.description}
+              </p>
+              <p className="text-xl font-sans leading-relaxed text-white/90 max-w-3xl mx-auto">
+                {t.hero.description2}
+              </p>
             </div>
 
-            {/* Right side - Image (no scroll animation) */}
-            <div className="lg:col-span-5 relative self-start">
-              <img
-                src="IMG_2310.JPG"
-                alt={language === "fr" ? "Image Principale des Tajines" : "الصورة الرئيسية للطواجين"}
-                className="w-full h-[700px] object-cover rounded-3xl pulse-glow floating-element border-4 border-dashed border-[#42322A]/30"
-              />
-            </div>
+           
           </div>
         </div>
       </section>
-
       <div className="artistic-divider"></div>
 
       <section id="about" className="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -501,48 +467,49 @@ export default function Home() {
       <div className="artistic-divider"></div>
 
       <section id="creation" className="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-  <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-secondary/12"></div>
-  <div className="absolute top-40 left-20 w-72 h-72 bg-gradient-to-br from-accent/25 to-primary/35 rounded-full blur-3xl floating-stagger-1" />
-  <div className="absolute bottom-20 right-40 w-96 h-96 bg-gradient-to-br from-secondary/20 to-accent/30 rounded-full blur-3xl floating-stagger-2" />
-  <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-gradient-to-br from-primary/30 to-secondary/40 rounded-full blur-2xl floating-stagger-3" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-secondary/12"></div>
+        <div className="absolute top-40 left-20 w-72 h-72 bg-gradient-to-br from-accent/25 to-primary/35 rounded-full blur-3xl floating-stagger-1" />
+        <div className="absolute bottom-20 right-40 w-96 h-96 bg-gradient-to-br from-secondary/20 to-accent/30 rounded-full blur-3xl floating-stagger-2" />
+        <div className="absolute top-1/3 right-1/4 w-48 h-48 bg-gradient-to-br from-primary/30 to-secondary/40 rounded-full blur-2xl floating-stagger-3" />
 
-  <div className="relative z-10 container mx-auto px-16 max-w-6xl">
-    <div
-      ref={(el) => observeElement(el, "creation-header")}
-      className={`${visibleElements.has("creation-header") ? "fade-in-down" : "opacity-0"} text-center mb-24 space-y-12`}
-    >
-      <div className="relative">
-        <h2 className="text-6xl md:text-8xl font-sans font-black gradient-text leading-none">
-          {t.creation.title}
-        </h2>
-        <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-accent/40 to-secondary/50 rounded-full blur-xl floating-element"></div>
-        <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-gradient-to-br from-primary/50 to-accent/60 rounded-full blur-lg floating-stagger-1"></div>
-      </div>
-      <h3 className="text-4xl font-sans font-bold text-accent pulse-glow">{t.creation.subtitle}</h3>
-      <div className="flex justify-center gap-4">
-        <div className="w-32 h-3 bg-gradient-to-r from-accent to-secondary rounded-full"></div>
-        <div className="w-20 h-3 bg-gradient-to-r from-primary to-accent rounded-full"></div>
-        <div className="w-16 h-3 bg-gradient-to-r from-secondary to-primary rounded-full"></div>
-      </div>
-    </div>
+        <div className="relative z-10 container mx-auto px-16 max-w-6xl">
+          <div
+            ref={(el) => observeElement(el, "creation-header")}
+            className={`${visibleElements.has("creation-header") ? "fade-in-down" : "opacity-0"} text-center mb-24 space-y-12`}
+          >
+            <div className="relative">
+              <h2 className="text-6xl md:text-8xl font-sans font-black gradient-text leading-none">
+                {t.creation.title}
+              </h2>
+              <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-accent/40 to-secondary/50 rounded-full blur-xl floating-element"></div>
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-gradient-to-br from-primary/50 to-accent/60 rounded-full blur-lg floating-stagger-1"></div>
+            </div>
+            <h3 className="text-4xl font-sans font-bold text-accent pulse-glow">{t.creation.subtitle}</h3>
+            <div className="flex justify-center gap-4">
+              <div className="w-32 h-3 bg-gradient-to-r from-accent to-secondary rounded-full"></div>
+              <div className="w-20 h-3 bg-gradient-to-r from-primary to-accent rounded-full"></div>
+              <div className="w-16 h-3 bg-gradient-to-r from-secondary to-primary rounded-full"></div>
+            </div>
+          </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {Object.entries(t.creation.steps).map(([key], index) => (
-        <div
-          key={key}
-          ref={(el) => observeElement(el, `creation-step-${index}`)}
-          className={`${visibleElements.has(`creation-step-${index}`) ? `fade-in-${index % 3 === 0 ? "left" : index % 3 === 1 ? "up" : "right"}` : "opacity-0"} relative group`}
-        >
-          <img
-            src={`creation-${key}.jpg`}
-            alt={language === "fr" ? `Creation step ${index + 1}` : `خطوة الإبداع ${index + 1}`}
-            className="w-full h-[400px] object-cover rounded-3xl floating-element border-4 border-dashed border-[#42322A]/30"
-          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Object.entries(t.creation.steps).map(([key], index) => (
+              <div
+                key={key}
+                ref={(el) => observeElement(el, `creation-step-${index}`)}
+                className={`${visibleElements.has(`creation-step-${index}`) ? `fade-in-${index % 3 === 0 ? "left" : index % 3 === 1 ? "up" : "right"}` : "opacity-0"} relative group`}
+              >
+                <img
+                  src={`creation-${key}.jpg`}
+                  alt={language === "fr" ? `Creation step ${index + 1}` : `خطوة الإبداع ${index + 1}`}
+                  className="w-full h-[400px] object-cover rounded-3xl floating-element border-4 border-dashed border-[#42322A]/30"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
+
       <section id="process" className="py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-primary/10"></div>
 
@@ -566,27 +533,25 @@ export default function Home() {
                 className={`${visibleElements.has(`process-step-${index}`) ? `fade-in-${index % 2 === 0 ? "left" : "right"}` : "opacity-0"} modern-card p-10 rounded-3xl border-0`}
               >
                 <div className="flex justify-center">
-                <div
-                  className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
-                >
-                  <div className={`space-y-6 ${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
-                    <div className="flex items-center gap-6">
-                      <div className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center text-white font-black text-xl pulse-glow">
-                        {index + 1}
+                  <div
+                    className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "lg:grid-flow-col-dense" : ""}`}
+                  >
+                    <div className={`space-y-6 ${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
+                      <div className="flex items-center gap-6">
+                        <div className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-2xl flex items-center justify-center text-white font-black text-xl pulse-glow">
+                          {index + 1}
+                        </div>
+                        <h3 className="text-2xl font-sans font-bold gradient-text">{step.title}</h3>
                       </div>
-                      <h3 className="text-2xl font-sans font-bold gradient-text">{step.title}</h3>
+                      <p className="text-lg font-sans leading-relaxed text-foreground/90">{step.description}</p>
                     </div>
-                    <p className="text-lg font-sans leading-relaxed text-foreground/90">{step.description}</p>
-                  </div>
-                  
-                  <div className={`${index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
-                 
-                 
-                     <img
-                      src={`process-step-${index + 1}.jpg`}
-                      alt={language === "fr" ? `Étape ${index + 1}` : `الخطوة ${index + 1}`}
-                      className="w-full h-80 object-cover rounded-3xl floating-element border-4 border-dashed border-[#42322A]/30"
-                    />
+                    
+                    <div className={`${index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
+                      <img
+                        src={`process-step-${index + 1}.jpg`}
+                        alt={language === "fr" ? `Étape ${index + 1}` : `الخطوة ${index + 1}`}
+                        className="w-full h-80 object-cover rounded-3xl floating-element border-4 border-dashed border-[#42322A]/30"
+                      />
                     </div>
                   </div>
                 </div>
@@ -601,7 +566,6 @@ export default function Home() {
             <div className="modern-card p-8 rounded-3xl max-w-4xl mx-auto">
               <p className="text-2xl font-sans leading-relaxed gradient-text font-bold italic">{t.process.closing}</p>
             </div>
-          
           </div>
         </div>
       </section>
@@ -616,7 +580,7 @@ export default function Home() {
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-16">
             <div className="space-y-8">
-               <img src="10_FAKHARA LOUTIA_Export_blanc_horiz.png" alt="" className="w-32 h-10" />
+              <img src="10_FAKHARA LOUTIA_Export_blanc_horiz.png" alt="" className="w-32 h-10" />
               <p className="font-sans text-white/90 leading-relaxed text-xl">
                 {language === "fr"
                   ? "L'art authentique de la poterie marocaine, transmis de génération en génération."
@@ -648,7 +612,7 @@ export default function Home() {
                 <p className="creative-hover p-2 rounded-lg">
                   {language === "fr" ? "Téléphone: +212 XXX XXX XXX" : "الهاتف: +212 XXX XXX XXX"}
                 </p>
-                <p className="creative-hover p-2 rounded-lg">{language === "fr" ? "Maroc" : "المغرب"}</p>
+                <p className="creative-hover p-2 rounded-lg">{language === "fr" ? "Chichaoua, maroc" : "المغرب,شيشاوة"}</p>
               </div>
             </div>
           </div>
@@ -660,8 +624,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-        <WhatsAppButton/>
+      <WhatsAppButton />
     </div>
-  
   )
 }
