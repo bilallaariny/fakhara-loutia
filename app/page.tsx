@@ -317,16 +317,10 @@ export default function Home() {
       </nav>
 
       {/* Home Section - Full-width image with 100vh and prettier content */}
-      <section id="home" className="relative h-[100vh] flex items-center overflow-hidden creative-bg-pattern">
-        {/* Full-width background image with 100vh */}
-        <div className="absolute inset-0">
-          <img
-            src="IMG_2310.JPG"
-            alt={language === "fr" ? "Image Principale des Tajines" : "الصورة الرئيسية للطواجين"}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
-        </div>
+      {/* Home Section - Modified to have content on left and image on right */}
+      <section id="home" className="relative min-h-[100vh] flex items-center overflow-hidden creative-bg-pattern">
+        {/* Background pattern */}
+        <div className="absolute inset-0 bg-white" />
 
         {/* Floating background shapes */}
         <div className="absolute top-20 left-10 w-40 h-40 bg-gradient-to-br from-accent/30 to-secondary/40 rounded-full blur-2xl floating-stagger-1" />
@@ -335,22 +329,34 @@ export default function Home() {
         <div className="absolute top-1/3 right-1/3 w-24 h-24 bg-gradient-to-br from-primary/45 to-secondary/55 rounded-full blur-lg floating-stagger-1" />
         <div className="absolute bottom-1/3 left-1/2 w-28 h-28 bg-gradient-to-br from-accent/40 to-primary/50 rounded-full blur-xl floating-stagger-2" />
 
-        {/* Content overlay */}
-        <div className="relative z-10 container mx-auto px-16 max-w-5xl py-12">
-          <div className="flex flex-col items-center text-center space-y-10">
-            <div className="space-y-6 modern-card creative-hover p-12 rounded-3xl bg-white/15 backdrop-blur-lg shadow-2xl">
-              <h3 className="text-5xl font-sans font-extrabold text-white tracking-tight leading-tight">
-                {t.hero.welcome}
-              </h3>
-              <p className="text-xl font-sans leading-relaxed text-white/90 max-w-3xl mx-auto">
-                {t.hero.description}
-              </p>
-              <p className="text-xl font-sans leading-relaxed text-white/90 max-w-3xl mx-auto">
-                {t.hero.description2}
-              </p>
+        {/* Content container */}
+        <div className="relative z-10 container mx-auto px-16 max-w-7xl py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Content on the left */}
+            <div className="space-y-10 order-2 lg:order-1">
+              <div className="space-y-6 modern-card creative-hover p-12 rounded-3xl bg-white/15 backdrop-blur-lg shadow-2xl">
+                <h3 className="text-5xl font-sans font-extrabold gradient-text tracking-tight leading-tight">
+                  {t.hero.welcome}
+                </h3>
+                <p className="text-xl font-sans leading-relaxed gradient-text">
+                  {t.hero.description}
+                </p>
+                <p className="text-xl font-sans leading-relaxed gradient-text">
+                  {t.hero.description2}
+                </p>
+              </div>
             </div>
 
-           
+            {/* Image on the right */}
+            <div className="order-1 lg:order-2 relative">
+              <img
+                src="IMG_2310.JPG"
+                alt={language === "fr" ? "Image Principale des Tajines" : "الصورة الرئيسية للطواجين"}
+                className="w-full h-[600px] object-cover rounded-3xl floating-element transform -rotate-2 border-4 border-dashed border-white/30"
+              />
+              <div className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-accent/40 to-secondary/50 rounded-full blur-xl floating-stagger-1"></div>
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-br from-primary/50 to-accent/60 rounded-full blur-lg floating-stagger-2"></div>
+            </div>
           </div>
         </div>
       </section>
